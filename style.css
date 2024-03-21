@@ -1,0 +1,67 @@
+*{
+    margin: 0;
+    background-color: #494D5F;
+}
+.header{
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    background-color: #8458b3;
+    padding: 1%;
+}
+h1{
+    background-color: #8458b3;
+}
+.middle{
+    background-color: #494D5F;
+    display: flex;
+    justify-content: center;
+}
+#btn{
+    border: none;
+    background-color: #494D5F;
+    color: #8458b3;
+    font-size: 1.5rem;
+    text-wrap: nowrap;
+}
+#addButton:hover{
+    background-color: pink;
+}
+.add{
+    display: flex;
+    justify-content: center;
+    border-radius: 15px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    margin: 10px;
+}
+.add img{
+    width: 35px;
+}
+.books{
+    width: 100vw;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 450px));
+    grid-template-rows: repeat(auto-fit, minmax(200px, 450px));
+    grid-auto-rows: minmax(200px, 450px);
+    gap: 20px;
+}
+.books div{
+    font-size: 35px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #d0bdf4;
+    padding: 15px;
+    margin: 15px;
+    border-radius: 15px;
+}
+.books div p{
+    width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    background-color: #d0bdf4;
+    text-align: center;
+}
