@@ -7,9 +7,12 @@ const books = document.querySelector('.books');
 const myLibrary = [];
 
 document.addEventListener('click', (event) => {
+    
     return (event.target.id === 'addButton') ? dialogForm.showModal()
     : (event.target.id === 'submit') ? (event.preventDefault(), addBookToLibrary())
     : (event.target.id === 'cancel') ? dialogForm.close() 
+    : (event.target.id === 'toggle') ? event.target.classList.toggle('read')
+    : (event.target.id === 'remove') ? event.target.parentElement.remove()
     : '';
 });
 
@@ -19,20 +22,6 @@ function Book(title, author, pages, read){
     this.pages = pages,
     this.read = read
 }; 
-function addElement(){
-    const book = document.createElement('div');
-    books.appendChild(book);
-
-    const title = document.createElement('p');
-    const author = document.createElement('p');
-    const pages = document.createElement('p');
-    const read = document.createElement('p');
-    
-    title.textContent = title;
-
-    book.appendChild(title);
-
-}
 
 function addBookToLibrary(){
     if (title.value != '' &&
@@ -41,11 +30,34 @@ function addBookToLibrary(){
         let title = document.querySelector('#title').value;
         let author = document.querySelector('#author').value;
         let pages = document.querySelector('#pages').value;
-        let read = document.querySelector('#read').value;
+        let read = document.querySelector('#read').checked;
         let book = new Book(title, author, pages, read);
         myLibrary.push(book)
         dialogForm.close();
-        console.log(myLibrary)
-        addElement();
+        
+        const bookDiv = document.createElement('div');
+        books.appendChild(bookDiv);
+
+        const titleP = document.createElement('p');
+        const authorP = document.createElement('p');
+        const pagesP = document.createElement('p');
+        const readP = document.createElement('h4');
+        const remove = document.createElement('p');
+
+        titleP.textContent = book.title;
+        authorP.textContent = book.author;
+        pagesP.textContent = book.pages;
+        toggle = () => book.read === true ? readP.classList.toggle('read') : '';
+        toggle();
+        readP.id = 'toggle'
+        remove.textContent = 'Delete';
+        remove.id = 'remove';
+
+
+        bookDiv.appendChild(titleP);
+        bookDiv.appendChild(authorP);
+        bookDiv.appendChild(pagesP);
+        bookDiv.appendChild(readP);
+        bookDiv.appendChild(remove);
     };
 };
