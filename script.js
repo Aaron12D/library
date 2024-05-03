@@ -16,11 +16,13 @@ document.addEventListener('click', (event) => {
     : '';
 });
 
-function Book(title, author, pages, read){
+class Book {
+    constructor(title, author, pages, read){
     this.title = title,
     this.author = author,
     this.pages = pages,
     this.read = read
+    }
 }; 
 
 function addBookToLibrary(){
